@@ -4,64 +4,8 @@ position: fixed;
   max-width: 500px;
   padding: 8px;
 }
-.but1{
-border:2px solid black;
-  border-radius: 5px;
-  background-color: bisque;
-  transition: border, background-color .2s linear;
-  z-index: 3;
-}
-.but1:hover{
-  border:2px solid orange;
-}
-.but1:focus{
-  border:2px solid orange;
-  background-color: white;
-  border-radius: 5px;
-  outline:0;
-}
-.but_far{
-
-  border:2px solid black;
-  border-radius: 5px;
-  background-color: bisque;
-  transition: border, background-color .1s linear;
-  z-index: 3;
-}
-.but_far:hover{
-  border:2px solid orange;
-  background-color: white;
-}
-.but_far:focus{
-  border:2px solid orange;
-  background-color: white;
-  border-radius: 5px;
-  outline:0;
-}
-.table{
-  max-width: 900px;
-  width: 100%;
-}
-.but_onTable{
-  display: block;
-  left: 60%;
-}
-.li{
-  max-width: 500px;
-
-  display:block;
-  font-size: 18px;
-  list-style-type: none;
-  margin: 5px;
-  padding: 10px;
-  border: 2px solid black;
-  border-radius: 10px;
-  background-color: bisque;
-}
 img{
-
   max-width:100%;
-
 }
 .li_text{
   font-weight: bold;
@@ -70,22 +14,9 @@ img{
 text-align: center;
 
 }
-.back_img{
-  z-index: 5;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
 
 
-.buttions_normal:hover{
-  background-color: white;
-  color: chocolate;
-  border: 2px solid chocolate;
-}
-.buttions_normal:focus{
-  outline:0;
-}
+
 
 .cdk-drag-preview {
 
