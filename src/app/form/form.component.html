@@ -1,0 +1,60 @@
+
+<div class="container">
+<div class="row" #End>
+  <div class="col-lg">
+<div class="card">
+<div cdkDropList class="card-body"  (cdkDropListDropped)="drop($event)">
+  <!--{{tasks | json}}-->
+  <button class="btn btn-outline-dark"  (click)=sort(testService.tsk) >Сортировка</button>
+  <ul class="list-group" >
+  <li class="list-group-item" *ngFor="let item of testService.tsk" id="{{item.ItemId}}" cdkDragBoundary=".card" cdkDrag>
+    <div *ngIf="item.bule">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <button class="btn btn-light" [disabled]="!item.taskChange || !item.taskNameChange" (click)="editing(item)" type="button" id="button-addon2">Принять</button>
+        </div>
+        <input type="text" aria-label="First name" placeholder="Название задачи"  [(ngModel)]="item.taskChange" class="form-control">
+        <input type="text" aria-label="Last name" placeholder="Описание"  [(ngModel)]="item.taskNameChange" class="form-control">
+      </div>
+    </div>
+    <div *ngIf="!item.bule" >
+      <div class="li_text">"{{item.taskName}}"  {{item.task}}</div>
+      <button type="button" class="btn btn-light" (click)="bulCheck(item)" > Изменить</button>
+      <button type="button" class="btn btn-light" (click)="rem(testService.tsk.indexOf(item))"> Удалить</button>
+      <button type="button" class="btn btn-light" (click)="getRoute(item)"  >Открыть</button>
+    </div>
+    <div class="input-group mb-3">
+      <div class="custom-file">
+        <input type="file" (change)="selectFile($event,item)" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Выбрать файл</label>
+      </div>
+    </div>
+      <div><img [src]='item.url' *ngIf="item.url"></div>
+  </li>
+  </ul>
+</div>
+  </div>
+  </div>
+  <div class="col-lg">
+  <form [formGroup]="myForm" >
+<div class="but">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <button class="btn btn-light" [disabled]="myForm.controls['task'].invalid || myForm.controls['taskName'].invalid" (click)="increse(myForm.controls['task'].value,myForm.controls['taskName'].value)" type="button" id="button-addon1">Создать</button>
+    </div>
+    <input type="text" aria-label="First name" placeholder="Название задачи"  formControlName="taskName" class="form-control">
+    <input type="text" aria-label="Last name" placeholder="Описание"  formControlName="task" class="form-control">
+  </div>
+  <div *ngIf="myForm.controls['task'].touched && myForm.controls['task'].invalid">
+    Введите имя задачи
+  </div>
+  <div *ngIf="myForm.controls['taskName'].touched && myForm.controls['taskName'].invalid">
+    Введите описание задачи
+  </div>
+</div>
+  </form>
+  </div>
+</div>
+</div>
+
+

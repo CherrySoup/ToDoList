@@ -1,0 +1,37 @@
+.full{
+  max-width: 720px;
+  width: 80%;
+position: absolute;
+  left: 40%;
+
+}
+
+.insideTable{
+  position: absolute;
+  display: block;
+  padding: 10px;
+  border: solid 1px darkgrey;
+  background-color: white;
+
+
+}
+.insideText{
+  margin: 3px;
+  border: solid 2px black;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  background-color: bisque;
+  padding: 5px;
+}
+img{
+  border: solid darkgrey 1px;
+  width: 360px;
+}
+
+.warning{
+  width: 360px;
+  font-size: 18px;
+  text-align: center;
+
+}
