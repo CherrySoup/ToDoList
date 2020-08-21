@@ -1,13 +1,13 @@
 <div class="full">
 
-<div  *ngFor="let item of testService.tsk" >
-  <div class="insideTable" *ngIf="item.itemId == idd">
-   <div class="alert alert-dark" role="alert">"{{item.taskName}}" {{item.task}} </div>
-    <div><img [src]='item.url' *ngIf="item.url"></div>
-  </div>
-  <div class="warning" *ngIf="!item.itemId">
-    No Doing with this ID
-  </div>
+  <div *ngFor="let item of testService.tsk">
+    <div class="insideTable" *ngIf="item.itemId == idd">
+      <div class="alert alert-dark" role="alert">"{{item.taskName}}" {{item.task}} </div>
+      <div><img [src]='item.url' *ngIf="item.url"></div>
+    </div>
+    <div class="warning" *ngIf="!item.itemId">
+      No Doing with this ID
+    </div>
 
-</div>
+  </div>
 </div>

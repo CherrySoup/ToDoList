@@ -7,14 +7,18 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './doings.component.html',
   styleUrls: ['./doings.component.scss']
 })
-export class DoingsComponent implements OnInit, OnDestroy{
-  @HostListener('window:beforeunload', [ '$event' ])
-  beforeUnloadHandler(event){
-this.ngOnDestroy();
+export class DoingsComponent implements OnInit, OnDestroy {
+  // tslint:disable-next-line:radix
+  public idd = parseInt(this.activateRoute.snapshot.paramMap.get('id'));
+
+  @HostListener('window:beforeunload', ['$event'])
+  beforeUnloadHandler(event) {
+    this.ngOnDestroy();
   }
-public idd = parseInt(this.activateRoute.snapshot.paramMap.get('id'));
+
   constructor(private activateRoute: ActivatedRoute,
-              public testService: TestService){}
+              public testService: TestService) {
+  }
 
   ngOnInit() {
     if (localStorage.tasks) {
@@ -23,6 +27,7 @@ public idd = parseInt(this.activateRoute.snapshot.paramMap.get('id'));
       this.testService.ItemId = JSON.parse(localStorage.getItem('itemId'));
     }
   }
+
   ngOnDestroy() {
     console.log('Added to localstorage');
     localStorage.setItem('tasks', JSON.stringify(this.testService.tsk));

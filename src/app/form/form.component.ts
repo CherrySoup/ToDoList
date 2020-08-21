@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy, HostListener} from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {TestService} from '../test.service';
 import {Router} from '@angular/router';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -19,13 +19,12 @@ export class FormComponent implements OnDestroy, OnInit {
     taskName: new FormControl('', Validators.required)
   });
 
-  increse(tsk, tskName) {
-
-this.testService.methodAdd(tsk, tskName);
+  Adding(tsk, tskName) {
+    this.testService.AddDo(tsk, tskName);
   }
 
   rem(ind) {
-   this.testService.methodRem(ind);
+    this.testService.RemDo(ind);
   }
 
   bulCheck(ind) {
@@ -33,7 +32,7 @@ this.testService.methodAdd(tsk, tskName);
   }
 
   editing(ind) {
-    this.testService.methodEdit(ind);
+    this.testService.EditDo(ind);
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -62,27 +61,30 @@ this.testService.methodAdd(tsk, tskName);
     };
   }
 
-  constructor(public testService: TestService, private route: Router) {}
+  constructor(public testService: TestService, private route: Router) {
+  }
 
   sort(itms) {
-this.testService.sortByTaskName(itms);
+    this.testService.sortByTaskName(itms);
   }
 
   getRoute(ind) {
     this.route.navigate(['/first', ind.itemId]);
 
   }
-  @HostListener('window:beforeunload', [ '$event' ])
-  beforeUnloadHandler(event){
+
+  @HostListener('window:beforeunload', ['$event'])
+  beforeUnloadHandler(event) {
     this.ngOnDestroy();
   }
+
   ngOnInit() {
     if (localStorage.tasks) {
       console.log('Taken');
       this.testService.tsk = JSON.parse(localStorage.getItem('tasks'));
       this.testService.ItemId = JSON.parse(localStorage.getItem('itemId'));
+    }
   }
-}
 
 
   ngOnDestroy() {
