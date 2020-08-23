@@ -13,7 +13,7 @@ export class TestService {
     itms.sort((a, b) => a.taskName > b.taskName ? 1 : -1);
   }
 
-  public AddDo(tsk, tskName) {
+  public AddTask(tsk, tskName) {
     this.tsk.push({
       task: tsk,
       taskName: tskName,
@@ -26,15 +26,15 @@ export class TestService {
     this.ItemId++;
   }
 
-  public RemDo(index) {
+  public RemoveTask(index) {
     this.tsk.splice(index, 1);
   }
 
-  public bulCheck(index) {
+  public checkEditing(index) {
     index.bule = 1;
   }
 
-  public EditDo(index) {
+  public EditTask(index) {
     index.task = index.taskChange;
     index.taskName = index.taskNameChange;
     index.bule = 0;

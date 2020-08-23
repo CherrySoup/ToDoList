@@ -20,19 +20,19 @@ export class FormComponent implements OnDestroy, OnInit {
   });
 
   Adding(tsk, tskName) {
-    this.testService.AddDo(tsk, tskName);
+    this.testService.AddTask(tsk, tskName);
   }
 
-  rem(ind) {
-    this.testService.RemDo(ind);
+  removing(ind) {
+    this.testService.RemoveTask(ind);
   }
 
   bulCheck(ind) {
-    this.testService.bulCheck(ind);
+    this.testService.checkEditing(ind);
   }
 
   editing(ind) {
-    this.testService.EditDo(ind);
+    this.testService.EditTask(ind);
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -64,7 +64,7 @@ export class FormComponent implements OnDestroy, OnInit {
   constructor(public testService: TestService, private route: Router) {
   }
 
-  sort(itms) {
+  sorting(itms) {
     this.testService.sortByTaskName(itms);
   }
 

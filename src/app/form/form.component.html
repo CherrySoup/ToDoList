@@ -4,7 +4,7 @@
       <div class="card">
         <div cdkDropList class="card-body" (cdkDropListDropped)="drop($event)">
           <!--{{tasks | json}}-->
-          <button class="btn btn-outline-dark" (click)=sort(testService.tsk)>Сортировка</button>
+          <button class="btn btn-outline-dark" (click)=sorting(testService.tsk)>Сортировка</button>
           <ul class="list-group">
             <li class="list-group-item" *ngFor="let item of testService.tsk" id="{{item.ItemId}}"
                 cdkDragBoundary=".card" cdkDrag>
@@ -24,7 +24,7 @@
               <div *ngIf="!item.bule">
                 <div class="li_text">"{{item.taskName}}"  {{item.task}}</div>
                 <button type="button" class="btn btn-light" (click)="bulCheck(item)"> Изменить</button>
-                <button type="button" class="btn btn-light" (click)="rem(testService.tsk.indexOf(item))"> Удалить
+                <button type="button" class="btn btn-light" (click)="removing(testService.tsk.indexOf(item))"> Удалить
                 </button>
                 <button type="button" class="btn btn-light" (click)="getRoute(item)">Открыть</button>
               </div>
