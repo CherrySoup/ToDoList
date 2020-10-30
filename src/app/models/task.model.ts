@@ -5,11 +5,11 @@ taskName: string;
 bule: boolean;
 taskChange: string;
 taskNameChange: string;
-url?: string;
+url?: any;
 itemId: number;
 }
 export class TaskModel {
-url?: string;
+url?: any;
 itemId: number;
   constructor( ) {
 

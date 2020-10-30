@@ -1,1 +1,28 @@
-<p>sidemenu works!</p>
+<div class="full">
+  <div id="content">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-primary" (click)="check_sidebar()">
+          <i class="fas fa-align-left"></i>
+          <span>Меню</span>
+        </button>
+
+      </div>
+    </nav>
+  </div>
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar" [class.active] = "ad">
+      <ul class="list-unstyled components">
+        <li>
+          <a routerLink="/first">В процессе</a>
+        </li>
+        <li>
+          <a routerLink="">Выполненные</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</div>

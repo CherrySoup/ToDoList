@@ -22,7 +22,8 @@
                 </div>
               </div>
               <div *ngIf="!item.bule">
-                <div class="li_text">"{{item.taskName}}"  {{item.task}}</div>
+                <div class="li_text">"{{item.taskName}}" </div>
+                <div class="li_text">{{item.task}}</div>
                 <button type="button" class="btn btn-light" (click)="bulCheck(item)"> Изменить</button>
                 <button type="button" class="btn btn-light" (click)="removing(testService.tsk.indexOf(item))"> Удалить
                 </button>
