@@ -3,6 +3,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {TestService} from '../test.service';
 import {Router} from '@angular/router';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { Task } from '../models/task.model';
 
 
 @Component({
@@ -11,19 +12,17 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnDestroy, OnInit {
-  url;
-  msg = '';
 
   myForm: FormGroup = new FormGroup({
     task: new FormControl('', Validators.required),
     taskName: new FormControl('', Validators.required)
   });
 
-  Adding(tsk, tskName) {
+  Adding(tsk: string, tskName: string) {
     this.testService.AddTask(tsk, tskName);
   }
 
-  removing(ind) {
+  removing(ind: number) {
     this.testService.RemoveTask(ind);
   }
 
@@ -31,7 +30,7 @@ export class FormComponent implements OnDestroy, OnInit {
     this.testService.checkEditing(ind);
   }
 
-  editing(ind) {
+  editing(ind: Task) {
     this.testService.EditTask(ind);
   }
 
@@ -39,16 +38,14 @@ export class FormComponent implements OnDestroy, OnInit {
     moveItemInArray(this.testService.tsk, event.previousIndex, event.currentIndex);
   }
 
-  selectFile(event, index) {
+  selectFile(event, index: Task) {
     if (!event.target.files[0] || event.target.files[0].length === 0) {
-      this.msg = 'You must select an image';
       return;
     }
 
     const mimeType = event.target.files[0].type;
 
     if (mimeType.match(/image\/*/) == null) {
-      this.msg = 'Only images are supported';
       return;
     }
 
@@ -56,7 +53,6 @@ export class FormComponent implements OnDestroy, OnInit {
     reader.readAsDataURL(event.target.files[0]);
 
     reader.onload = (event) => {
-      this.msg = '';
       index.url = reader.result;
     };
   }
@@ -64,11 +60,11 @@ export class FormComponent implements OnDestroy, OnInit {
   constructor(public testService: TestService, private route: Router) {
   }
 
-  sorting(itms) {
+  sorting(itms: Task) {
     this.testService.sortByTaskName(itms);
   }
 
-  getRoute(ind) {
+  getRoute(ind: Task) {
     this.route.navigate(['/first', ind.itemId]);
 
   }

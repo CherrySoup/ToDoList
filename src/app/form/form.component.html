@@ -6,7 +6,7 @@
           <!--{{tasks | json}}-->
           <button class="btn btn-outline-dark" (click)=sorting(testService.tsk)>Сортировка</button>
           <ul class="list-group">
-            <li class="list-group-item" *ngFor="let item of testService.tsk" id="{{item.ItemId}}"
+            <li class="list-group-item" *ngFor="let item of testService.tsk" id="{{item.itemId}}"
                 cdkDragBoundary=".card" cdkDrag>
               <div *ngIf="item.bule">
                 <div class="input-group">
@@ -15,9 +15,9 @@
                             (click)="editing(item)" type="button" id="button-addon2">Принять
                     </button>
                   </div>
-                  <input type="text" aria-label="First name" placeholder="Название задачи" [(ngModel)]="item.taskChange"
+                  <input type="text" aria-label="First name" placeholder="Название задачи" [(ngModel)]="item.taskNameChange"
                          class="form-control">
-                  <input type="text" aria-label="Last name" placeholder="Описание" [(ngModel)]="item.taskNameChange"
+                  <input type="text" aria-label="Last name" placeholder="Описание" [(ngModel)]="item.taskChange"
                          class="form-control">
                 </div>
               </div>

@@ -11,6 +11,8 @@ import { FormComponent } from './form/form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Form2Component } from './form2/form2.component';
 import { DoingsComponent } from './doings/doings.component';
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { TrashComponent } from './trash/trash.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/first', pathMatch: 'full'},
@@ -24,7 +26,9 @@ const appRoutes: Routes = [
     AppComponent,
     FormComponent,
     Form2Component,
-    DoingsComponent
+    DoingsComponent,
+    SidemenuComponent,
+    TrashComponent
   ],
   imports: [
     FormsModule,

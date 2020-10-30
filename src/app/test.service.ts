@@ -1,43 +1,43 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
+import { Task } from './models/task.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
-  url;
   ItemId = 1;
-  tsk = [];
+  tsk: Array<Task> = [];
 
   public sortByTaskName(itms) {
     itms.sort((a, b) => a.taskName > b.taskName ? 1 : -1);
   }
 
-  public AddTask(tsk, tskName) {
+  public AddTask(tsk: string, tskName: string) {
     this.tsk.push({
       task: tsk,
       taskName: tskName,
       bule: false,
-      taskChange: '',
-      taskNameChange: '',
-      url: '',
+      taskChange: null,
+      taskNameChange: null,
+      url: null,
       itemId: this.ItemId
     });
     this.ItemId++;
   }
 
-  public RemoveTask(index) {
+  public RemoveTask(index: number) {
     this.tsk.splice(index, 1);
   }
 
-  public checkEditing(index) {
-    index.bule = 1;
+  public checkEditing(index: Task) {
+    index.bule = true;
   }
 
-  public EditTask(index) {
+  public EditTask(index: Task) {
     index.task = index.taskChange;
     index.taskName = index.taskNameChange;
-    index.bule = 0;
+    index.bule = false;
   }
 
   constructor(private route: Router) {
