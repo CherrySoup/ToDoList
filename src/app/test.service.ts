@@ -8,9 +8,10 @@ import { Task } from './models/task.model';
 export class TestService {
   ItemId = 1;
   tsk: Array<Task> = [];
+  completeTsk: Array<Task> = [];
 
-  public sortByTaskName(itms) {
-    itms.sort((a, b) => a.taskName > b.taskName ? 1 : -1);
+  public sortByTaskName() {
+    this.tsk.sort((a, b) => a.taskName > b.taskName ? 1 : -1);
   }
 
   public AddTask(tsk: string, tskName: string) {
@@ -26,7 +27,16 @@ export class TestService {
     this.ItemId++;
   }
 
-  public RemoveTask(index: number) {
+  public RemoveTask(index: number, item: Task) {
+    this.completeTsk.push({
+      task: item.task,
+      taskName: item.taskName,
+      bule: false,
+      taskChange: null,
+      taskNameChange: null,
+      url: item.url,
+      itemId: item.itemId
+    });
     this.tsk.splice(index, 1);
   }
 

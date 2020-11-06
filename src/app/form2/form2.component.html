@@ -1,1 +1,14 @@
-<p>form2 works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg">
+      <div class="card-body">
+<div class="card">
+<ul class="list-group" *ngFor="let item of testService.completeTsk">
+  <div class="li_text">"{{item.taskName}}" </div>
+  <div class="li_text">{{item.task}}</div>
+</ul>
+</div>
+      </div>
+    </div>
+  </div>
+</div>

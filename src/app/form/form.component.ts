@@ -22,8 +22,8 @@ export class FormComponent implements OnDestroy, OnInit {
     this.testService.AddTask(tsk, tskName);
   }
 
-  removing(ind: number) {
-    this.testService.RemoveTask(ind);
+  removing(ind: number, item: Task) {
+    this.testService.RemoveTask(ind, item);
   }
 
   bulCheck(ind) {
@@ -60,8 +60,8 @@ export class FormComponent implements OnDestroy, OnInit {
   constructor(public testService: TestService, private route: Router) {
   }
 
-  sorting(itms: Task) {
-    this.testService.sortByTaskName(itms);
+  sorting() {
+    this.testService.sortByTaskName();
   }
 
   getRoute(ind: Task) {
@@ -79,6 +79,7 @@ export class FormComponent implements OnDestroy, OnInit {
       console.log('Taken');
       this.testService.tsk = JSON.parse(localStorage.getItem('tasks'));
       this.testService.ItemId = JSON.parse(localStorage.getItem('itemId'));
+      this.testService.completeTsk = JSON.parse(localStorage.getItem('completeTasks'));
     }
   }
 
@@ -87,6 +88,7 @@ export class FormComponent implements OnDestroy, OnInit {
     console.log('Added to localstorage');
     localStorage.setItem('itemId', JSON.stringify(this.testService.ItemId));
     localStorage.setItem('tasks', JSON.stringify(this.testService.tsk));
+    localStorage.setItem('completeTasks', JSON.stringify(this.testService.completeTsk));
   }
 }
 

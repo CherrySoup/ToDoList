@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/first', pathMatch: 'full'},
   { path: 'first', component: FormComponent },
   { path: 'second', component: Form2Component },
-  { path: 'first/:id', component: DoingsComponent},
+  { path: 'first/:id', component: DoingsComponent}
 ];
 
 @NgModule({
