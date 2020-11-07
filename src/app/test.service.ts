@@ -19,8 +19,8 @@ export class TestService {
       task: tsk,
       taskName: tskName,
       bule: false,
-      taskChange: null,
-      taskNameChange: null,
+      taskChange: tsk,
+      taskNameChange: tskName,
       url: null,
       itemId: this.ItemId
     });
