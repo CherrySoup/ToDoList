@@ -1,10 +1,17 @@
 .container{
-  padding-top:10px;
+  padding-top:20px;
+}
+.card{
+  box-shadow: 0 1px 22px -10px #000000;
 }
 .but{
+
 position: fixed;
   max-width: 500px;
   padding: 8px;
+}
+.input-group{
+  box-shadow: 0 1px 22px -10px #000000;
 }
 img{
   max-width:100%;
